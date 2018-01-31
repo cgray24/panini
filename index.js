@@ -32,8 +32,7 @@ module.exports = class {
       throw new Error();
     }
 
-    this.panini.setup();
-    this.output = output;
+    this.panini.setup(output);
   }
 
   /**
@@ -42,7 +41,7 @@ module.exports = class {
    */
   build() {
     return new Promise((resolve, reject) => {
-      this.panini.compile(this.output)
+      this.panini.compile()
         .on('finish', resolve)
         .on('error', reject);
     });
